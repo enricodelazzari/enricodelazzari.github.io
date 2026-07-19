@@ -196,6 +196,7 @@ window.addEventListener(
     toTop.classList.toggle("opacity-0", hidden);
     toTop.classList.toggle("translate-y-3", hidden);
     toTop.classList.toggle("pointer-events-none", hidden);
+    toTop.classList.toggle("invisible", hidden);
   },
   { passive: true }
 );
