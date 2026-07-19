@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Fetch the GitHub avatar to serve it first-party
+        run: curl -fsSL "https://avatars.githubusercontent.com/u/10452445?v=4" -o avatar.png
+
       - name: Build Tailwind CSS
         run: |
           npm install --no-save --no-audit --no-fund tailwindcss @tailwindcss/cli
@@ -32,7 +35,7 @@ jobs:
       - name: Cache-bust asset URLs with the commit SHA
         run: |
           VERSION="${GITHUB_SHA::7}"
-          sed -i "s|src=\"app.js\"|src=\"app.js?v=${VERSION}\"|; s|href=\"style.css\"|href=\"style.css?v=${VERSION}\"|" index.html
+          sed -i "s|src=\"app.js\"|src=\"app.js?v=${VERSION}\"|; s|href=\"style.css\"|href=\"style.css?v=${VERSION}\"|; s|href=\"/style.css\"|href=\"/style.css?v=${VERSION}\"|" index.html 404.html
 
       - uses: actions/configure-pages@v5
 
