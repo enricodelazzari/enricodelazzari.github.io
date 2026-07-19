@@ -4,7 +4,10 @@ const SOURCES = [
 ];
 
 const CACHE_KEY = "repos-v1";
+const DL_CACHE_KEY = "downloads-v1";
 const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+const PACKAGIST_BASE = "https://packagist.org/packages/";
 
 // Repo names whose Packagist vendor/name differs from the GitHub path.
 const PACKAGIST_OVERRIDES = {};
@@ -62,7 +65,52 @@ function readCache() {
 function packagistUrl(repo) {
   if (repo.language !== "PHP") return null;
   const path = PACKAGIST_OVERRIDES[repo.full_name] ?? repo.full_name.toLowerCase();
-  return `https://packagist.org/packages/${path}`;
+  return `${PACKAGIST_BASE}${path}`;
+}
+
+const formatCount = new Intl.NumberFormat("en", {
+  notation: "compact",
+  maximumFractionDigits: 1,
+}).format;
+
+async function loadDownloads(repos) {
+  let counts = null;
+  try {
+    const raw = sessionStorage.getItem(DL_CACHE_KEY);
+    if (raw) {
+      const { at, data } = JSON.parse(raw);
+      if (Date.now() - at < CACHE_TTL) counts = data;
+    }
+  } catch {
+    // Ignore bad cache.
+  }
+
+  if (!counts) {
+    counts = {};
+    await Promise.allSettled(
+      repos
+        .filter((repo) => packagistUrl(repo))
+        .map(async (repo) => {
+          const res = await fetch(`${packagistUrl(repo)}.json`);
+          if (!res.ok) throw new Error(`Packagist responded with ${res.status}`);
+          const { package: pkg } = await res.json();
+          counts[repo.full_name] = pkg.downloads.total;
+        })
+    );
+    try {
+      sessionStorage.setItem(DL_CACHE_KEY, JSON.stringify({ at: Date.now(), data: counts }));
+    } catch {
+      // Storage full or unavailable: caching is best-effort.
+    }
+  }
+
+  for (const [name, total] of Object.entries(counts)) {
+    const el = document.querySelector(`[data-downloads="${CSS.escape(name)}"]`);
+    if (el && Number.isFinite(total)) {
+      el.textContent = `⬇ ${formatCount(total)}`;
+      el.classList.remove("hidden");
+    }
+  }
 }
 
 const ACCENT_LINK = "text-violet-600 hover:underline dark:text-violet-400";
@@ -95,6 +143,13 @@ function renderCard(repo) {
     language.textContent = repo.language;
     meta.append(language);
   }
+  if (packagistUrl(repo)) {
+    const downloads = document.createElement("span");
+    downloads.className = "hidden";
+    downloads.dataset.downloads = repo.full_name;
+    downloads.title = "Packagist downloads";
+    meta.append(downloads);
+  }
 
   const links = document.createElement("div");
   links.className = "flex gap-3.5 text-sm";
@@ -118,6 +173,7 @@ async function main() {
   try {
     const repos = selectRepos(await fetchRepos());
     grid.replaceChildren(...repos.map(renderCard));
+    loadDownloads(repos).catch(console.error);
   } catch (error) {
     const message = document.createElement("p");
     message.className = `col-span-full ${MUTED_TEXT}`;
