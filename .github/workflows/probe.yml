@@ -1,6 +1,6 @@
 name: Probe live site
 
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 
 jobs:
   probe:
