@@ -1,6 +1,6 @@
 # Hi, I'm Enrico 👋
 
-PHP developer & open source maintainer at [@maize-tech](https://github.com/maize-tech), based in Venezia, Italy.
+PHP developer & open source maintainer at [Maize](https://maize.io) ([@maize-tech](https://github.com/maize-tech) on GitHub), based in Venezia, Italy.
 
 🌐 [enricodelazzari.github.io](https://enricodelazzari.github.io) · 🐦 [X](https://twitter.com/enricodelazzari) · 💼 [LinkedIn](https://www.linkedin.com/in/enricodelazzari)
 
