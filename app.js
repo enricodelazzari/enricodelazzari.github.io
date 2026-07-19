@@ -127,6 +127,11 @@ async function main() {
   }
 }
 
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const dark = document.documentElement.classList.toggle("dark");
+  localStorage.theme = dark ? "dark" : "light";
+});
+
 const toTop = document.getElementById("to-top");
 window.addEventListener(
   "scroll",

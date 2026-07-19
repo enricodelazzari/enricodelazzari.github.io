@@ -6,15 +6,23 @@
   <title>Enrico De Lazzari — PHP Developer &amp; Open Source Maintainer</title>
   <meta name="description" content="PHP developer and open source maintainer at Maize. Packages, tools and projects by Enrico De Lazzari.">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/10452445?v=4">
+  <script>
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) && matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100">
   <nav class="sticky top-0 z-10 border-b border-zinc-200 bg-zinc-50/85 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/85">
     <div class="mx-auto flex max-w-[60rem] items-center justify-center gap-4 px-5 py-3 sm:justify-between">
       <a class="hidden font-bold hover:text-violet-600 sm:block dark:hover:text-violet-400" href="#top">Enrico De Lazzari</a>
-      <div class="flex gap-10 sm:gap-5">
+      <div class="flex items-center gap-10 sm:gap-5">
         <a class="font-semibold whitespace-nowrap text-violet-600 hover:underline dark:text-violet-400" href="#open-source">Open Source</a>
         <a class="font-semibold whitespace-nowrap text-violet-600 hover:underline dark:text-violet-400" href="#talks">Talks</a>
+        <button class="cursor-pointer rounded-lg border border-zinc-200 px-2 py-1 text-base leading-none hover:bg-zinc-200/60 dark:border-zinc-800 dark:hover:bg-zinc-800/60" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span></button>
       </div>
     </div>
   </nav>
