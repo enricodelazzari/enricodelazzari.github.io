@@ -1,0 +1,22 @@
+name: Probe live site
+
+on: workflow_dispatch
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect served pages
+        run: |
+          echo "== index headers =="
+          curl -sI https://enricodelazzari.github.io/ | head -15
+          echo "== index head =="
+          curl -s https://enricodelazzari.github.io/ | head -c 1200; echo
+          echo "== style.css headers =="
+          curl -sI https://enricodelazzari.github.io/style.css | head -15
+          echo "== style.css first bytes =="
+          curl -s https://enricodelazzari.github.io/style.css | head -c 300; echo
+          echo "== style.css size =="
+          curl -s https://enricodelazzari.github.io/style.css | wc -c
+          echo "== cache-busted style status =="
+          curl -s -o /dev/null -w "%{http_code}\n" "https://enricodelazzari.github.io/style.css?v=abcc033"
