@@ -7,3 +7,5 @@ PHP developer & open source maintainer at [@maize-tech](https://github.com/maize
 ---
 
 This repository also hosts my personal site, served with GitHub Pages: a static page that lists the open source packages I maintain, loaded live from the GitHub API.
+
+The code is released under the [MIT License](LICENSE); personal content (name, bio, avatar, talks) is not covered by it.
