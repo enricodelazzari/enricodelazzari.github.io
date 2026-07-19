@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,54 +8,54 @@
   <link rel="icon" href="https://avatars.githubusercontent.com/u/10452445?v=4">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#top">Enrico De Lazzari</a>
-      <div class="topbar-links">
-        <a href="#open-source">Open Source</a>
-        <a href="#talks">Talks</a>
+<body class="bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100">
+  <nav class="sticky top-0 z-10 border-b border-zinc-200 bg-zinc-50/85 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/85">
+    <div class="mx-auto flex max-w-[60rem] items-center justify-center gap-4 px-5 py-3 sm:justify-between">
+      <a class="hidden font-bold hover:text-violet-600 sm:block dark:hover:text-violet-400" href="#top">Enrico De Lazzari</a>
+      <div class="flex gap-10 sm:gap-5">
+        <a class="font-semibold whitespace-nowrap text-violet-600 hover:underline dark:text-violet-400" href="#open-source">Open Source</a>
+        <a class="font-semibold whitespace-nowrap text-violet-600 hover:underline dark:text-violet-400" href="#talks">Talks</a>
       </div>
     </div>
   </nav>
 
-  <main class="container" id="top">
-    <header class="hero">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/10452445?v=4" alt="Enrico De Lazzari" width="112" height="112">
-      <h1>Enrico De Lazzari</h1>
-      <p class="tagline">PHP developer &amp; open source maintainer at <a href="https://github.com/maize-tech">Maize</a></p>
-      <p class="location">📍 Venezia, Italy</p>
-      <nav class="social">
-        <a href="https://github.com/enricodelazzari">GitHub</a>
-        <a href="https://twitter.com/enricodelazzari">X</a>
-        <a href="https://www.linkedin.com/in/enricodelazzari">LinkedIn</a>
+  <main class="mx-auto max-w-[60rem] px-5 py-12" id="top">
+    <header class="mb-16 text-center">
+      <img class="mx-auto size-28 rounded-full border-[3px] border-zinc-200 dark:border-zinc-800" src="https://avatars.githubusercontent.com/u/10452445?v=4" alt="Enrico De Lazzari" width="112" height="112">
+      <h1 class="mt-4 text-3xl font-bold">Enrico De Lazzari</h1>
+      <p class="mt-1 text-lg text-zinc-500 dark:text-zinc-400">PHP developer &amp; open source maintainer at <a class="text-violet-600 hover:underline dark:text-violet-400" href="https://github.com/maize-tech">Maize</a></p>
+      <p class="mt-2 mb-5 text-[0.95rem] text-zinc-500 dark:text-zinc-400">📍 Venezia, Italy</p>
+      <nav class="flex justify-center gap-6">
+        <a class="font-semibold text-violet-600 hover:underline dark:text-violet-400" href="https://github.com/enricodelazzari">GitHub</a>
+        <a class="font-semibold text-violet-600 hover:underline dark:text-violet-400" href="https://twitter.com/enricodelazzari">X</a>
+        <a class="font-semibold text-violet-600 hover:underline dark:text-violet-400" href="https://www.linkedin.com/in/enricodelazzari">LinkedIn</a>
       </nav>
     </header>
 
-    <section class="packages" id="open-source">
-      <h2>Open Source</h2>
-      <p class="section-note">A selection of the packages and projects I maintain — find them all on <a href="https://github.com/maize-tech">maize-tech</a> and <a href="https://github.com/enricodelazzari?tab=repositories">my profile</a>.</p>
-      <div id="repo-grid" class="grid" aria-live="polite">
-        <p class="loading">Loading repositories…</p>
+    <section id="open-source" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold">Open Source</h2>
+      <p class="mt-1 text-zinc-500 dark:text-zinc-400">A selection of the packages and projects I maintain — find them all on <a class="text-violet-600 hover:underline dark:text-violet-400" href="https://github.com/maize-tech">maize-tech</a> and <a class="text-violet-600 hover:underline dark:text-violet-400" href="https://github.com/enricodelazzari?tab=repositories">my profile</a>.</p>
+      <div id="repo-grid" class="mt-6 grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4" aria-live="polite">
+        <p class="col-span-full text-zinc-500 dark:text-zinc-400">Loading repositories…</p>
       </div>
     </section>
 
-    <section class="talks" id="talks">
-      <h2>Talks</h2>
-      <div class="talk">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube-nocookie.com/embed/F51_Z4Ci_kQ" title="Prodotto in Laravel? No problem! — Laravel Day talk by Enrico De Lazzari" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <section id="talks" class="mt-16 scroll-mt-20">
+      <h2 class="mb-4 text-2xl font-bold">Talks</h2>
+      <div class="max-w-2xl">
+        <div class="aspect-video overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <iframe class="block h-full w-full" src="https://www.youtube-nocookie.com/embed/F51_Z4Ci_kQ" title="Prodotto in Laravel? No problem! — Laravel Day talk by Enrico De Lazzari" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <p class="talk-caption"><strong>Prodotto in Laravel? No problem!</strong> — <a href="https://www.laravelday.it/archivio-talk/prodotto-in-laravel-no-problem/">Laravel Day</a> · <a href="https://youtu.be/F51_Z4Ci_kQ">Watch on YouTube</a></p>
+        <p class="mt-2.5 text-sm text-zinc-500 dark:text-zinc-400"><strong>Prodotto in Laravel? No problem!</strong> — <a class="text-violet-600 hover:underline dark:text-violet-400" href="https://www.laravelday.it/archivio-talk/prodotto-in-laravel-no-problem/">Laravel Day</a> · <a class="text-violet-600 hover:underline dark:text-violet-400" href="https://youtu.be/F51_Z4Ci_kQ">Watch on YouTube</a></p>
       </div>
     </section>
 
-    <footer>
-      <p>© <span id="year"></span> Enrico De Lazzari · <a href="https://github.com/enricodelazzari/enricodelazzari">Source on GitHub</a></p>
+    <footer class="mt-16 text-center text-sm text-zinc-500 dark:text-zinc-400">
+      <p>© <span id="year"></span> Enrico De Lazzari · <a class="text-violet-600 hover:underline dark:text-violet-400" href="https://github.com/enricodelazzari/enricodelazzari.github.io">Source on GitHub</a></p>
     </footer>
   </main>
 
-  <button class="to-top" id="to-top" aria-label="Back to top" title="Back to top">↑</button>
+  <button class="pointer-events-none fixed right-5 bottom-5 z-20 size-11 translate-y-3 cursor-pointer rounded-full bg-violet-600 text-xl leading-none text-white opacity-0 shadow-lg transition-all duration-200 hover:brightness-110" id="to-top" aria-label="Back to top" title="Back to top">↑</button>
 
   <script src="app.js"></script>
 </body>

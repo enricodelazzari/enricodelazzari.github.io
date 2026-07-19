@@ -23,6 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build Tailwind CSS
+        run: |
+          npm install --no-save --no-audit --no-fund tailwindcss @tailwindcss/cli
+          npx @tailwindcss/cli -i src/styles.css -o style.css --minify
+          rm -rf node_modules package.json package-lock.json
+
       - name: Cache-bust asset URLs with the commit SHA
         run: |
           VERSION="${GITHUB_SHA::7}"
