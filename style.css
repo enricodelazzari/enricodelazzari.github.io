@@ -1,0 +1,103 @@
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #7a3ff2;
+  --border: #e4e4e7;
+  --shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101014;
+    --surface: #1a1a21;
+    --text: #ededf0;
+    --muted: #9a9aa3;
+    --accent: #a685ff;
+    --border: #2a2a33;
+    --shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.hero { text-align: center; margin-bottom: 4rem; }
+
+.avatar {
+  border-radius: 50%;
+  border: 3px solid var(--border);
+}
+
+.hero h1 { margin: 1rem 0 0.25rem; font-size: 2rem; }
+
+.tagline { margin: 0; font-size: 1.125rem; color: var(--muted); }
+
+.location { margin: 0.5rem 0 1.25rem; color: var(--muted); font-size: 0.95rem; }
+
+.social { display: flex; gap: 1.5rem; justify-content: center; }
+
+.social a { font-weight: 600; }
+
+.packages h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+
+.section-note { color: var(--muted); margin-top: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card h3 { margin: 0; font-size: 1.05rem; overflow-wrap: anywhere; }
+
+.card p { margin: 0; color: var(--muted); font-size: 0.9rem; flex-grow: 1; }
+
+.card .meta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.card .links { display: flex; gap: 0.9rem; font-size: 0.9rem; }
+
+.loading, .error { color: var(--muted); grid-column: 1 / -1; }
+
+footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
