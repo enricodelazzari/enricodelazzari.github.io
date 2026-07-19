@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Inspect served pages
         run: |
+          sleep 60
           echo "== index headers =="
           curl -sI https://enricodelazzari.github.io/ | head -15
           echo "== index head =="
