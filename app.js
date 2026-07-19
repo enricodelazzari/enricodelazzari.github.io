@@ -9,7 +9,12 @@ const CACHE_TTL = 60 * 60 * 1000; // 1 hour
 // Repo names whose Packagist vendor/name differs from the GitHub path.
 const PACKAGIST_OVERRIDES = {};
 
-const HIDDEN_REPOS = new Set(["enricodelazzari", ".github"]);
+const HIDDEN_REPOS = new Set(["enricodelazzari", ".github", "enricodelazzari.github.io"]);
+
+// Hand-picked repos to feature, in display order (e.g. "maize-tech/laravel-markable").
+// Leave empty to fall back to the top MAX_REPOS by stars.
+const FEATURED_REPOS = [];
+const MAX_REPOS = 9;
 
 async function fetchRepos() {
   const cached = readCache();
@@ -32,6 +37,15 @@ async function fetchRepos() {
     // Storage full or unavailable: caching is best-effort.
   }
   return repos;
+}
+
+function selectRepos(repos) {
+  if (FEATURED_REPOS.length > 0) {
+    return FEATURED_REPOS
+      .map((name) => repos.find((r) => r.full_name === name))
+      .filter(Boolean);
+  }
+  return repos.slice(0, MAX_REPOS);
 }
 
 function readCache() {
@@ -94,7 +108,7 @@ async function main() {
 
   const grid = document.getElementById("repo-grid");
   try {
-    const repos = await fetchRepos();
+    const repos = selectRepos(await fetchRepos());
     grid.replaceChildren(...repos.map(renderCard));
   } catch (error) {
     const message = document.createElement("p");
