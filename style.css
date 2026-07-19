@@ -64,7 +64,13 @@ body {
 
 .topbar-links { display: flex; gap: 1.25rem; }
 
-.topbar-links a { font-weight: 600; font-size: 0.95rem; }
+.topbar-links a { font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+
+@media (max-width: 520px) {
+  .brand { display: none; }
+  .topbar-inner { justify-content: center; padding: 0.65rem 1rem; }
+  .topbar-links { gap: 2.5rem; }
+}
 
 .packages, .talks { scroll-margin-top: 4.5rem; }
 
