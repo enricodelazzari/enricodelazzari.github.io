@@ -119,4 +119,12 @@ async function main() {
   }
 }
 
+const toTop = document.getElementById("to-top");
+window.addEventListener(
+  "scroll",
+  () => toTop.classList.toggle("visible", window.scrollY > 400),
+  { passive: true }
+);
+toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
 main();
