@@ -2,7 +2,7 @@
 
 PHP developer & open source maintainer at [@maize-tech](https://github.com/maize-tech), based in Venezia, Italy.
 
-🌐 [enricodelazzari.com](https://enricodelazzari.com) · 🐦 [X](https://twitter.com/enricodelazzari) · 💼 [LinkedIn](https://www.linkedin.com/in/enricodelazzari)
+🌐 [enricodelazzari.github.io](https://enricodelazzari.github.io) · 🐦 [X](https://twitter.com/enricodelazzari) · 💼 [LinkedIn](https://www.linkedin.com/in/enricodelazzari)
 
 ---
 
