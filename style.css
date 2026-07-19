@@ -1,5 +1,6 @@
 :root {
   --bg: #fafafa;
+  --bg-translucent: rgb(250 250 250 / 0.85);
   --surface: #ffffff;
   --text: #1a1a1a;
   --muted: #6b6b6b;
@@ -8,9 +9,12 @@
   --shadow: 0 1px 3px rgb(0 0 0 / 0.06);
 }
 
+html { scroll-behavior: smooth; }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #101014;
+    --bg-translucent: rgb(16 16 20 / 0.85);
     --surface: #1a1a21;
     --text: #ededf0;
     --muted: #9a9aa3;
@@ -30,6 +34,39 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-translucent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.brand:hover { text-decoration: none; color: var(--accent); }
+
+.topbar-links { display: flex; gap: 1.25rem; }
+
+.topbar-links a { font-weight: 600; font-size: 0.95rem; }
+
+.packages, .talks { scroll-margin-top: 4.5rem; }
 
 .container {
   max-width: 960px;

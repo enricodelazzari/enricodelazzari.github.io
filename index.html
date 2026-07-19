@@ -9,7 +9,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">Enrico De Lazzari</a>
+      <div class="topbar-links">
+        <a href="#open-source">Open Source</a>
+        <a href="#talks">Talks</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" id="top">
     <header class="hero">
       <img class="avatar" src="https://avatars.githubusercontent.com/u/10452445?v=4" alt="Enrico De Lazzari" width="112" height="112">
       <h1>Enrico De Lazzari</h1>
@@ -22,7 +32,7 @@
       </nav>
     </header>
 
-    <section class="packages">
+    <section class="packages" id="open-source">
       <h2>Open Source</h2>
       <p class="section-note">A selection of the packages and projects I maintain — find them all on <a href="https://github.com/maize-tech">maize-tech</a> and <a href="https://github.com/enricodelazzari?tab=repositories">my profile</a>.</p>
       <div id="repo-grid" class="grid" aria-live="polite">
@@ -30,7 +40,7 @@
       </div>
     </section>
 
-    <section class="talks">
+    <section class="talks" id="talks">
       <h2>Talks</h2>
       <div class="talk">
         <div class="video-wrap">
