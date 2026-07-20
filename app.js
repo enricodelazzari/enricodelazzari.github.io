@@ -126,6 +126,8 @@ function renderCard(repo) {
   const titleLink = document.createElement("a");
   titleLink.className = ACCENT_LINK;
   titleLink.href = repo.html_url;
+  titleLink.target = "_blank";
+  titleLink.rel = "noopener";
   titleLink.textContent = repo.full_name;
   title.append(titleLink);
 
@@ -158,6 +160,8 @@ function renderCard(repo) {
     const link = document.createElement("a");
     link.className = ACCENT_LINK;
     link.href = packagist;
+    link.target = "_blank";
+    link.rel = "noopener";
     link.textContent = "Packagist";
     links.append(link);
   }
